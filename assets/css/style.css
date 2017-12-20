@@ -1,0 +1,22 @@
+body {
+    background-image: url(../images/movieSet.jpg);
+    background-size: 100%;
+    color: white;
+    text-align: center;
+}
+
+#guessBox {
+    float:left;
+}
+
+#letterBox {
+    float:right;
+}
+
+#movieScreen {
+    margin-right: 150px;
+}
+
+#winBox {
+    clear: both;
+}
