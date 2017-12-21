@@ -29,6 +29,8 @@ body {
 #movieScreen {
     /* margin-right: 100px; */
     font-size: x-large;
+    width: 750px;
+    margin-left: 300px;
 }
 
 #winBox {
