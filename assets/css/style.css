@@ -29,18 +29,17 @@ body {
 #movieScreen {
     /* margin-right: 100px; */
     font-size: x-large;
-    width: 750px;
-    margin-left: 300px;
+    margin: auto;
+    
 }
 
 #winBox {
-    clear: both;
     position: fixed;
     bottom: 0;
     left: 650px;
     text-align: center;
-    margin-bottom: 60px;
     padding: 10px;
+    margin-bottom: 60px;
     border: 2px solid #fff;
 }
 
