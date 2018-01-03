@@ -71,7 +71,8 @@ var imagesArray=[
 var missesRemaining = 7;
 var usedLetters = [];
 var playAgain = true;
-var wins = 0;    
+var wins = 0;
+var pauseGame = false;    
 
 //if the user has lost a round and wants to play again
 function yesStartOverFunction() {
@@ -79,6 +80,7 @@ function yesStartOverFunction() {
   missesRemaining = 7;
   wins = 0;
   document.getElementById("numberWins").innerHTML = wins;
+  pauseGame = false;
   startGame();
 }
 //if the user no longer wishes to play
@@ -89,8 +91,10 @@ function noButtonFunction() {
 //if the user has won a round and wants to continue
 function yesButtonFunction() {
   playAgain = true;
+  pauseGame = false;
   startGame();
 }
+
 //evaluates if a user wins and wants play/stop or if they lose want to play/stop
 function startGame () {
   if(missesRemaining > 0 && playAgain === true){
@@ -128,7 +132,9 @@ function gamePlay () {
 
   //loops for user input
   document.onkeyup = function userInput(event) {
-    var userChoice = event.key;
+    if(pauseGame === false){
+      var userChoice = event.key;
+    }
     userChoice = userChoice.toLowerCase();
     
     //Ensures that user is only selecting letters and is not hitting the same letter twice
@@ -160,11 +166,13 @@ function gamePlay () {
         //loops for when the user wins or loses. This will start our cycle over
         if(remainingLetters === 0) {
           wins += 1;
+          pauseGame = true;
           document.getElementById("numberWins").innerHTML = wins;
           document.getElementById("movieScreen").innerHTML = "<p><img class='moviePoster' src=\"" + imagesArray[randomNumber] + "\" alt='Movie Poster Here'></p><p>" + movieInfoArray[randomNumber] + "</p>";
           document.getElementById("movieScreen").innerHTML += "<p>Would you like to continue?</p><p><button class='continueButton' onclick='yesButtonFunction()'>Yes</button><button class='continueButton' onclick='noButtonFunction()'>  No</button></p>";
         }
         if(missesRemaining === 0) {
+          pauseGame = true;
           startGame();
         } 
       }
