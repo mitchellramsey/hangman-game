@@ -3,7 +3,7 @@
 var randomMovie;
 var movieTitles=[
  	    "avatar",
-      "titantic",
+      "titanic",
       "frozen",
       "minions",
       "skyfall",
@@ -45,7 +45,7 @@ var imagesArray=[
       "assets/images/tangled.jpg"];
   var movieInfoArray=[
       "Avatar(2009): Ranks #1 making 2.8 billion dollars in the box office!",
-      "Titantic(1997): Ranks #2 making 2.2 billion dollars in the box office!",
+      "Titanic(1997): Ranks #2 making 2.2 billion dollars in the box office!",
       "Frozen(2013): Ranks #3 making 1.3 billion dollars in the box office!",
       "Minions(2015): Ranks #4 making 1.2 billion dollars in the box office!",
       "Skyfall(2012): Ranks #5 making 1.1 billion dollars in the box office!",
@@ -125,7 +125,8 @@ function gamePlay () {
 
 
   //Writes out blanks for answer
-  document.getElementById("movieScreen").innerHTML = answerArray;
+  
+  document.getElementById("movieScreen").innerHTML = answerArray.join(" ");
   //Writes out the number of guesses remaining
   document.getElementById("gr").innerHTML = missesRemaining;
 
@@ -149,7 +150,7 @@ function gamePlay () {
         for (i=0; i<randomMovie.length; i++){
           if(randomMovie[i] === userChoice && answerArray[i] === "_"){
             answerArray[i] = userChoice;
-            document.getElementById("movieScreen").innerHTML = answerArray;
+            document.getElementById("movieScreen").innerHTML = answerArray.join(" ");
             remainingLetters -= 1;
           }
         }
